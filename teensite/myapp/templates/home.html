@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block categories %}
+{% endblock %}
+{% block content %}
+<div id="gal_grid_header">
+<h3>Find · Explore · Enjoy · Popular and Trending</h3></div>
+<div id="gal_grid">
+
+{% for blog in blogs %}
+    {% with blog.images.all|first as pic %}
+        <div class="gal_grid_item" href="{{ blog.get_absolute_url }}">
+        <a class="gal_grid_image_wrapper" href="{{ blog.get_absolute_url }}">
+        <img class="gal_grid_image" src="{{ pic.get_pic }}" />
+        </a>
+        <a class="gal_grid_info" href="{{ blog.get_absolute_url }}">
+        <p class="gal_title text-center">{{ blog.title }}</p>
+        </a>
+        </div>
+    {% endwith %}
+{% endfor %}
+
+
+<div class="clear"></div>
+
+
+</div>
+<div id="feed_spinny" class="grid_spinny"></div>
+</div>
+    {% endblock %}

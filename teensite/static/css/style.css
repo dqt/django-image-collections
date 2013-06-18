@@ -1,0 +1,33 @@
+.gal_grid_item,#gal_grid .gal_grid_item{border:1px solid #999}#related_topics
+.gal_grid_item{margin:0 0 15px 0;width:200px;height:140px;letter-spacing:-.05em;background:#181818}#popular_galleries.upsell .gal_grid_item{height:200px}#related_topics
+.gal_grid_item{width:242px;height:140px;overflow:hidden;background:#181818}#related_topics
+.gal_grid_item:nth-child(even){border:1px solid #777!important;border-width:0 1px}#gal_grid
+
+.gal_grid_item:hover{
+border:1px solid #9C251C;
+box-shadow: 0 0 32px rgba(156, 37, 28, 1);
+-moz-box-shadow: 0 0 32px rgba(0, 0, 255, 1);
+-webkit-box-shadow: 0 0 32px rgba(156, 37, 28, 1);
+}#gal_grid
+
+.img-glow {
+    outline:none;
+    transition: all 0.25s ease-in-out;
+    -webkit-transition: all 0.25s ease-in-out;
+    -moz-transition: all 0.25s ease-in-out;
+}
+
+.img-glow:hover {
+    box-shadow: 0 0 16px rgba(0, 0, 255, 1);
+    -webkit-box-shadow: 0 0 16px rgba(0, 0, 255, 1);
+    -moz-box-shadow: 0 0 16px rgba(0, 0, 255, 1);
+}
+
+.img-polaroid {
+  padding: 4px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);}

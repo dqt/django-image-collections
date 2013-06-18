@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Teen's Digest</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+<!-- Le styles -->
+<style type="text/css">
+body {padding-top: 40px;}
+</style>
+<link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+<link href="https://netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.min.css" rel="stylesheet">
+<link href="http://www.teensdigest.com/static/css/article.css" rel="stylesheet"/>
+
+
+
+
+<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+<script src="js/html5shiv.js"></script>
+<![endif]-->
+<!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="http://www.teensdigest.com/static/img/favicon.png">
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-41109829-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+
+<body>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+        <a class="brand" href="http://www.teensdigest.com"><i style="vertical-align:baseline" class="icon-thumbs-up"></i> Teen's Digest</a>
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <i style="vertical-align:baseline" class="icon-th"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+<!-- the_page -->
+<br>
+<div id='inner'>
+<div id='ads_lightbox_right'>
+POPULAR
+{% with random_obj.images.all|first as pic %}
+    <div id='popular_galleries'>
+    <a class="gal_grid_item" href="{{ random_obj.get_absolute_url }}">
+    <img class="gal_grid_image" src="{{ pic.get_pic }}" />
+    <div class="gal_grid_info">
+    <div class="trans_bg"></div>
+    <div class="content_over_transparent">
+    <p class="gal_title">{{ random_obj.title }}</p>
+    </div>
+    </div>
+    </a>
+{% endwith %}
+
+<div class='right_ad_banner'><img src="http://www.teensdigest.com/static/img/pnsv.jpg" width="160"></div>
+
+{% for tw in twelve %}
+    {% with tw.images.all|first as pic %}
+        <a class="gal_grid_item" href="{{ tw.get_absolute_url }}">
+        <img class="gal_grid_image" src="{{ pic.get_pic }}" />
+        <div class="gal_grid_info">
+        <div class="trans_bg"></div>
+        <div class="content_over_transparent">
+        <p class="gal_title">{{ tw.title }}</p>
+        </div>
+        </div>
+        </a>
+    {% endwith %}
+{% endfor %}
+
+<div class='clear'></div>
+</div>
+</div>
+<div id='ads_lightbox_main'>
+<h1>
+<div id='top_buttons'>
+<div class="pagination">
+    <span class="step-links">
+        {% if image.has_previous %}
+            <a class='btn btn-primary' id= 'next_button' href="?page={{ image.previous_page_number }}">Previous</a>
+        {% endif %}
+
+        {% if image.has_next %}
+            <a class='btn btn-primary' id= 'next_button' href="?page={{ image.next_page_number }}">Next</a>
+        {% endif %}
+    </span>
+</div>
+</div>
+{{ post.title }}
+</h1>
+<div id='top_ad_banner' class='ad_banner'><img src="http://www.teensdigest.com/static/img/pns.gif"/></div>
+
+<div id='item_wrapper'>
+<div id='main_image'>
+<div class='item_wrapper_inner' id='item_wrapper_inner_15'>
+{% for im in image %}
+    <h2>
+    &#35;
+    <span>
+    {{ im.number }}
+    </span>
+    {{ im.title }}
+    </h2>
+    <p>
+    {{ im.body }}
+
+    </p>
+    <div id='image_and_arrows'>
+    <div id='image_wrapper'>
+    <a href="{{ im.citation }}">
+    <img class="img-polaroid" id="browser_image"
+    src="{{ im.get_pic }}"
+    />
+    </a>
+    </br></br><p>From: {{ im.citation }}</p>
+{% endfor %}
+<div class='clear'></div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+<div id='bottom_ad_banner' class='ad_banner'><img src="http://www.teensdigest.com/static/img/pns.gif"/></div>
+<div id='bottom_buttons'>
+<div class="pagination">
+    <span class="step-links">
+        {% if image.has_previous %}
+            <a class='btn btn-primary' id= 'next_button' href="?page={{ image.previous_page_number }}">Previous</a>
+        {% endif %}
+
+        {% if image.has_next %}
+            <a class='btn btn-primary' id= 'next_button' href="?page={{ image.next_page_number }}">Next</a>
+        {% endif %}
+    </span>
+</div>
+</div>
+
+<div id='related_topics' class="list">
+<h4>TRENDING NOW <i class="icon-hand-down icon-large"></i></h4>
+
+<div id='related_topics_inner'>
+{% for tw in twelve %}
+    {% with tw.images.all|first as pic %}
+        <a class="gal_list_item" href="{{ tw.get_absolute_url }}">
+        <div class="gal_list_image_wrapper">
+        <img class="gal_list_image" src="{{ pic.get_pic }}" />
+        </div>
+        <div class="gal_list_info">
+        <p class="gal_title">{{ tw.title }}</p>
+        <p class="gal_desc">{{ tw.body }}</p>
+        </div>
+        <div class="clear"></div>
+        </a>
+    {% endwith %}
+{% endfor %}
+</div>
+
+
+    <div class='clear'></div></div></div></div>
+<!-- Le javascript -->
+<script src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/icanhaz.js/0.9/ICanHaz.min.js" type="text/javascript"></script>
+  </body>
+</html>
